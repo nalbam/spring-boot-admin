@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @ActiveProfiles("test")
 @RunWith(SpringRunner.class)
-public class SpringBootAdminApplicationTest {
+public class BootAdminApplicationTest {
 
     @Test
     public void contextLoads() {
