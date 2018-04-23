@@ -2,6 +2,8 @@ machine:
   timezone: Asia/Seoul
   java:
     version: oraclejdk8
+  environment:
+    CONFIG_SERVER: http://localhost:8888
 
 dependencies:
   pre:
@@ -19,6 +21,9 @@ compile:
     - ls -al target
 
 test:
+  pre:
+    - python -m SimpleHTTPServer 8888:
+        background: true
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
@@ -28,9 +33,9 @@ deployment:
     branch: /^(?!master$).*$/
     commands:
       - ~/toaster/toast.sh publish beanstalk
-      - ~/toaster/toast.sh deploy beanstalk config-server-dev
+      - ~/toaster/toast.sh deploy beanstalk boot-admin-dev
   production:
     branch: master
     commands:
       - ~/toaster/toast.sh publish beanstalk
-      - ~/toaster/toast.sh deploy beanstalk config-server-prod
+      - ~/toaster/toast.sh deploy beanstalk boot-admin-prod
