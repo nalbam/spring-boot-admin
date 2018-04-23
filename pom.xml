@@ -38,7 +38,7 @@
     </properties>
 
     <dependencies>
-        <!-- spring-cloud -->
+        <!-- spring-cloud-config -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
@@ -47,7 +47,7 @@
         <!-- spring-cloud-eureka -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
 
         <!-- spring-boot -->
@@ -63,11 +63,6 @@
         <!-- spring-boot-admin -->
         <dependency>
             <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-server</artifactId>
-            <version>${spring-boot-admin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
             <version>${spring-boot-admin.version}</version>
         </dependency>
@@ -76,11 +71,11 @@
             <artifactId>spring-boot-admin-server-ui-login</artifactId>
             <version>${spring-boot-admin.version}</version>
         </dependency>
-        <dependency>
-            <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>${spring-boot-admin.version}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>de.codecentric</groupId>-->
+        <!--<artifactId>spring-boot-admin-starter-client</artifactId>-->
+        <!--<version>${spring-boot-admin.version}</version>-->
+        <!--</dependency>-->
 
         <!-- lombok -->
         <dependency>
