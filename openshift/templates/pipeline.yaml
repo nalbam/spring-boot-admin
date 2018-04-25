@@ -1,0 +1,15 @@
+kind: BuildConfig
+apiVersion: v1
+metadata:
+  name: boot-admin-pipeline
+spec:
+  type: JenkinsPipeline
+  strategy:
+    jenkinsPipelineStrategy:
+      jenkinsfile: |-
+        node('maven') {
+          stage 'build'
+          openshiftBuild(buildConfig: 'boot-admin', showBuildLogs: 'true')
+          stage 'deploy'
+          openshiftDeploy(deploymentConfig: 'boot-admin')
+        }
